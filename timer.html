@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10% 10% 10% 10%;
+            background-color: rgb(173, 110, 110);
+        }
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: 30px;
+            font-weight: 700;
+            border: 2px dotted plum;
+            border-radius:10px;
+            box-shadow: 10px 10px 5px 0px rgba(95, 79, 79, 0.75);
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <span id="hours">00</span>
+    <span>:</span>
+    <span id="minutes">00</span>
+    <span>:</span>
+    <span id="seconds">00</span>
+    <span ID="ampm"></span>
+    </div>
+    <script>
+        function time(){
+        let clock = new Date()
+        let hr = clock.getHours()
+        let minutes = clock.getMinutes()
+        let seconds = clock.getSeconds()
+        
+
+        let hours = document.querySelector('#hours')
+        let ampm = document.querySelector('#ampm')
+        if (hr>12){
+            hr -=12
+            ampm.innerHTML = 'PM'
+            }
+        else{
+            ampm.innerHTML = 'AM'
+            }
+        if (hr<10){
+            hours.innerHTML = '0'+hr
+        }
+        else{
+            hours.innerHTML = hr
+        }
+        
+        let min = document.querySelector('#minutes')
+        if (minutes<10){
+            min.innerHTML = '0'+minutes
+        }
+        else{
+            min.innerHTML = minutes
+        }
+      
+        let sec = document.querySelector('#seconds')
+        if (seconds<10){
+            sec.innerHTML = '0'+seconds
+        }
+        else{
+            sec.innerHTML = seconds
+        }
+        // sec.innerHTML = seconds
+
+        
+    }
+    setInterval(time,1000)
+
+    </script>
+</body>
+</html>
